@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="testwork.heapify.firstapp">
+
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
+	<application
+		android:allowBackup="true"
+		android:icon="@mipmap/ic_launcher"
+		android:label="@string/app_name"
+		android:supportsRtl="true"
+		android:theme="@style/AppTheme">
+		<activity android:name=".MainActivity">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN"/>
+
+				<category android:name="android.intent.category.LAUNCHER"/>
+			</intent-filter>
+		</activity>
+
+		<receiver
+			android:name=".InformationReceiver"
+			android:enabled="true"
+			android:exported="true">
+
+			<intent-filter>
+				<action android:name="testwork.heapify.secondapp.SEND_INFORMATION"/>
+			</intent-filter>
+		</receiver>
+
+		<receiver
+			android:name=".ActivityStartReceiver"
+			android:exported="false">
+			<intent-filter
+				android:priority="-999">
+				<action
+					android:name="testwork.heapify.firstapp.START_ACTIVITY"/>
+			</intent-filter>
+		</receiver>
+	</application>
+
+</manifest>
